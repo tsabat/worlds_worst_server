@@ -5,4 +5,9 @@ if which lsb_relase; then
   exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
 fi
 
+server_home="$HOME/home"
+cd $server_home || mkdir $server_home && cd $server_home
+
+echo 'hi' > index.html
+
 python -m SimpleHTTPServer 8000
